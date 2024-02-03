@@ -48,8 +48,4 @@ for airportCode in airports.keys {
 
 var airportCode = [String](airports.keys)
 
-print(airportCode)
-
-
-
-
+print("\r\(airportCode)")
