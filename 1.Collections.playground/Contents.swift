@@ -14,7 +14,7 @@ for (index, value) in shoppingList.enumerated() {
 var testB = Array(repeating: shoppingList, count: 2)
 print(testB)
 
-//MARK: - Sets and Dictionaries
+//MARK: - Sets and Dictionaries 
 var genreSet: Set = ["Classical", "Rock", "Rock", "Techno"]
 genreSet.insert("Jazz")
 for (index, genre) in genreSet.enumerated() {
@@ -24,7 +24,7 @@ var genreSet2: Set = ["Classical2", "Rock2", "Rock2", "Techno2"]
 
 var genreSetUnion = genreSet.union(genreSet2).sorted()
 print(genreSetUnion)
-print("\r")
+print("\r ")
 
 var airports: [String: String] = ["YYZ": "Toronto Pearson", "DUB": "Dublin"]
 print(airports)
@@ -47,6 +47,7 @@ for airportCode in airports.keys {
 }
 
 var airportCode = [String](airports.keys)
+
 print(airportCode)
 
 
