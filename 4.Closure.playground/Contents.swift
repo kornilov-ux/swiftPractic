@@ -18,7 +18,7 @@ let strings = numbers.map { (number) -> String in
 	
 	return output
 }
-print(strings)
+//print(strings)
 
 // MARK: - захват значений (Capturing Values)
 func makeIncrementer(forIncrement amount: Int) -> () -> Int {
@@ -39,4 +39,31 @@ func makeHiFunc(str: String) -> (String) -> (String) {
 }
 var engHi = makeHiFunc(str: "Hello")
 let checkHi = engHi("Alex")
-print(checkHi)
+//print(checkHi)
+
+// MARK: - Escaping Closures (Сбегающие замыкания)
+var completionHandlers: [() -> Void] = []
+// func принимает closure в качестве аргумента объявленного за пределами func
+func someFunctionWithEscapingClosure(completionHandler: @escaping () -> Void) { 
+	completionHandlers.append(completionHandler)
+}
+
+func someFunctionWithNoneЕscapingClosure(closure: () -> Void) {
+	closure()
+}
+
+class SomeClass {
+	var x = 10
+	func doSomething() {
+		someFunctionWithNoneЕscapingClosure { x = 200 }
+		someFunctionWithEscapingClosure { self.x = 100 }		
+	}
+}
+
+let instance = SomeClass()
+instance.doSomething()
+
+print(instance.x) // "200"
+ 
+completionHandlers.first?()
+print(instance.x) // "100"
